@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+rectangle "Sistema de Biblioteca" {
+  
+  actor Cliente
+  actor Bibliotecário
+  
+  Cliente --> (Emprestar Livro ou Revista)
+  Cliente --> (Devolver Livro ou Revista)
+  Cliente --> (Reservar Livro ou Revista)
+  Cliente --> (Cancelar Reserva)
+  
+  (Reservar Livro ou Revista) --> (Notificar Disponibilidade de Título Reservado) : <<include>>
+
+  Bibliotecário --> (Gerenciar Títulos)
+  Bibliotecário --> (Gerenciar Clientes)
+  Bibliotecário --> (Gerenciar Empréstimos e Reservas)
+  Bibliotecário --> (Controlar Compra de Novos Títulos)
+  Bibliotecário --> (Remover Títulos Ultrapassados ou Deteriorados)
+  
+  (Remover Títulos Ultrapassados ou Deteriorados) --> (Checar Se Título Está Ultrapassado ou Deteriorado) : <<include>>
+  
+}
+
+@enduml
